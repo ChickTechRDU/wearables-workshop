@@ -28,6 +28,22 @@
 					<h1>Light Painting with LilyPad</h1>
 				</section>
 				<section>
+					<h2>Persistence Of Vision</h2>
+					<ul>
+						<li>The human eye can see an after image for 1/25 of a second</li>
+						<li>Movies - many frames at high speeds looks smooth </li>
+					</ul>
+					<img src="https://68.media.tumblr.com/2033eaae01ce617dd1c04fdd69f0cb07/tumblr_njqf143ISd1qd479ro1_500.gif">
+					<small>https://68.media.tumblr.com/2033eaae01ce617dd1c04fdd69f0cb07/tumblr_njqf143ISd1qd479ro1_500.gif</small>
+				</section>
+				<section>
+					<h2>Persistence Of Vision + Technology = Writing Words in the Air</h2>
+					<iframe width="560" height="315" src="https://www.youtube.com/embed/YifZRG6HRg8" frameborder="0" allowfullscreen></iframe>
+				</section>
+				<section>
+					<h2>Let's do it Portably and Fashionably</h2>
+				</section>
+				<section>
 					<h3>LilyPad</h3>
 					<p>
 						<img src="https://upload.wikimedia.org/wikipedia/commons/e/ea/Lilypad_Arduino_with_fading_LEDs.jpg"/>
@@ -42,9 +58,99 @@
 						<li>Programmable</li>
 					</ul>
 				</section>
-
 				<section>
+					<h2>LilyTiny</h2>
+					<img height="200" src="https://cdn.sparkfun.com//assets/parts/5/9/9/7/10899-02.jpg"/>
+					<br/>
+					<ul>
+						<li>$5</li>
+						<li>4 Programmable Outputs</li>
+					</ul>
+				</section>
+				<section>
+					<h2>LilyTiny with LEDs</h2>
 					<img src="https://s-media-cache-ak0.pinimg.com/originals/ee/86/28/ee86289e1118dc23063517bd66d171b1.jpg"/>
+				</section>
+				<section>
+					<h2>Programming the LilyTiny</h2>
+					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Arduino_Logo.svg/1280px-Arduino_Logo.svg.png">
+				</section>
+				<section>
+					<h2>Setup()</h2>
+					<pre><code>
+void setup()
+{
+   // Set each Pin to OUTPUT mode, we are writing data out
+   // if we are reading sensor data we would set it to Input
+   pinMode(ledPin0, OUTPUT);
+   pinMode(ledPin1, OUTPUT);
+   pinMode(ledPin2, OUTPUT);
+   pinMode(ledPin3, OUTPUT);
+
+}
+					</code></pre>
+				</section>
+				<section>
+					<h2>printWord()</h2>
+					<pre><code>
+// Take in an array of "words" and flash the LEDs
+void printWord(int wordVar[]) {
+  int numRows = sizeWord/4;
+  for(int j=numRows-1; j >=0; j--) {
+    for(int i=0; i<4; i++) {
+    digitalWrite(i, wordVar[i+j*4]);
+    }
+    delay(columnDelay);
+  }
+}
+void loop(){
+     printWord(povImage);
+}					</code></pre>
+				</section>
+				<section>
+					<h2>povImage[]</h2>
+					<pre><code>
+//Turn you head 90 degrees to see the word
+int povImage[] = {
+  1,1,1,1, //H
+  0,0,1,0,
+  1,1,1,1,
+  0,0,0,0,
+  0,0,0,0,
+  0,0,0,0,
+  1,1,0,1, //i
+  0,0,0,0,
+  0,0,0,0,
+  0,0,0,0
+};
+					</code></pre>
+				</section>
+				<section>
+					<h2>Load the code to the wristband</h2>
+					<img src="./img/loading.jpg">
+				</section>
+				<section>
+					<h2>Wave your arms</h2>
+					<img src="./img/kermitarms.gif">
+				</section>
+				<section>
+					<img src="./img/waveyarms.jpg">
+				</section>
+				<section>
+					<h2>Common Problems:</h2>
+					<ul>
+						<li>I can't see words
+						<ul>
+							<li>Is it dark enough?</li>
+							<li>Are you waving fast enough? Increase the delayms variable if you think you're waving too slow, Decrease it if you're going too fast.</li>
+							<li>The more letters there are the harder it is to tell them apart.</li>
+						</ul>
+						</li>
+						<li>My lights are staying on and not flashing
+						<ul><li>make sure no threads are touching each other. Turn the battery pack off and on again.</li></ul>
+						</li>
+
+					</ul>
 				</section>
 			</div>
 		</div>

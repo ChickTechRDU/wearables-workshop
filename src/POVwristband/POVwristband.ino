@@ -11,22 +11,16 @@ int povImage[] = {
   1,1,1,1,
   0,0,0,0,
   0,0,0,0,
+  0,0,0,0,
   1,1,0,1, //i
   0,0,0,0,
   0,0,0,0,
   0,0,0,0,
   0,0,0,0,
-  1,1,1,1, //C
-  1,0,0,1,
-  1,0,0,1,
-  0,0,0,0,
-  0,0,0,0,
-  0,0,0,1, //T
-  1,1,1,1,
-  0,0,0,1
+  0,0,0,0
 };
 
-double columnDelay = 2.5; //wait 2.5ms between each column flash
+double delayms = 2.5; //wait 2.5ms between each column flash
 int sizeWord = NUM_ELEM(povImage);
 
   
@@ -47,7 +41,7 @@ void printWord(int wordVar[]) {
     for(int i = 0; i<4; i++) {
     digitalWrite(i, wordVar[i+j*4]);
     }
-    delay(columnDelay);
+    delay(delayms);
   }
 }
 
