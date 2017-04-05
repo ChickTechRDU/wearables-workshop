@@ -64,7 +64,7 @@
 					<br/>
 					<ul>
 						<li>$5</li>
-						<li>4 Programmable Outputs</li>
+						<li>4 Programmable Input/Output Pins</li>
 					</ul>
 				</section>
 				<section>
@@ -73,7 +73,7 @@
 				</section>
 				<section>
 					<h2>Programming the LilyTiny</h2>
-					<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Arduino_Logo.svg/1280px-Arduino_Logo.svg.png">
+					<img height="500px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/87/Arduino_Logo.svg/1280px-Arduino_Logo.svg.png">
 				</section>
 				<section>
 					<h2>Setup()</h2>
@@ -100,7 +100,7 @@ void printWord(int wordVar[]) {
     for(int i=0; i<4; i++) {
     digitalWrite(i, wordVar[i+j*4]);
     }
-    delay(columnDelay);
+    delay(delayms);
   }
 }
 void loop(){
@@ -124,6 +124,13 @@ int povImage[] = {
   0,0,0,0
 };
 					</code></pre>
+				</section>
+				<section>
+					<h2>delayms</h2>
+					<code><pre>
+//The number of ms between every blink, Increase the delayms variable if you think you're waving too slow, Decrease it if you're going too fast.
+delayms=3</pre></code>
+
 				</section>
 				<section>
 					<h2>Load the code to the wristband</h2>
